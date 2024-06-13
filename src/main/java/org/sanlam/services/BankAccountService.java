@@ -12,7 +12,7 @@ public class BankAccountService {
     @Autowired
     private BankAccountRepository bankAccountRepository;
 
-    public WithdrawalResult withdraw(Long accountId, BigDecimal amount) {
+    public synchronized WithdrawalResult withdraw(Long accountId, BigDecimal amount) {
         BigDecimal currentBalance = bankAccountRepository.getCurrentBalance(accountId);
 
         if (currentBalance == null) {
