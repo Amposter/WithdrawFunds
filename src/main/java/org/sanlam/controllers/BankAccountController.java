@@ -1,5 +1,6 @@
 package org.sanlam.controllers;
 
+import org.sanlam.enums.WithdrawalResult;
 import org.sanlam.services.SnsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,16 +25,16 @@ public class BankAccountController {
         @RequestParam("accountId") Long accountId,
         @RequestParam("amount") BigDecimal amount
     ) {
-        String result = bankAccountService.withdraw(accountId, amount);
+        WithdrawalResult result = bankAccountService.withdraw(accountId, amount);
 
         switch (result) {
-            case "CURRENT_BALANCE_NULL" -> {
-                return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Current balance is null");
+            case WithdrawalResult.NO_BALANCE -> {
+                return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("No account for specified ID");
             }
-            case "INSUFFICIENT_FUNDS" -> {
+            case WithdrawalResult.INSUFFICIENT_FUNDS -> {
                 return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Insufficient funds for withdrawal");
             }
-            case "WITHDRAWAL_SUCCESSFUL" -> {
+            case WithdrawalResult.SUCCESSFUL -> {
                 // After a successful withdrawal, publish a withdrawal event to SNS
                 snsService.publishWithdrawalEvent(amount, accountId, "SUCCESSFUL");
                 return ResponseEntity.ok("Withdrawal successful");

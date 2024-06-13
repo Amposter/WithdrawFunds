@@ -1,5 +1,6 @@
 package org.sanlam.services;
 
+import org.sanlam.enums.WithdrawalResult;
 import org.sanlam.repositories.BankAccountRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,15 @@ public class BankAccountService {
     @Autowired
     private BankAccountRepository bankAccountRepository;
 
-    public String withdraw(Long accountId, BigDecimal amount) {
+    public WithdrawalResult withdraw(Long accountId, BigDecimal amount) {
         BigDecimal currentBalance = bankAccountRepository.getCurrentBalance(accountId);
 
         if (currentBalance == null) {
-            return "CURRENT_BALANCE_NULL";
+            return WithdrawalResult.NO_BALANCE;
         } else if (currentBalance.compareTo(amount) < 0) {
-            return "INSUFFICIENT_FUNDS";
+            return WithdrawalResult.INSUFFICIENT_FUNDS;
         } else {
-            return "WITHDRAWAL_SUCCESSFUL";
+            return WithdrawalResult.SUCCESSFUL;
         }
     }
 
