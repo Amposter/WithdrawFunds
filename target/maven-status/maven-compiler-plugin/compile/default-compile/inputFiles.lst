@@ -1,4 +1,6 @@
+/Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/controllers/config/AwsConfig.java
 /Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/services/BankAccountService.java
-/Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/WithdrawalEvent.java
-/Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/BankAccountController.java
+/Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/services/SnsService.java
+/Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/events/WithdrawalEvent.java
 /Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/repositories/BankAccountRepository.java
+/Users/edrees/IdeaProjects/Sanlam/src/main/java/org/sanlam/controllers/BankAccountController.java
