@@ -10,13 +10,8 @@ import software.amazon.awssdk.services.sns.model.PublishResponse;
 import java.math.BigDecimal;
 
 public class SnsService {
+    @Autowired
     private SnsClient snsClient;
-
-    public SnsService() {
-        this.snsClient = SnsClient.builder()
-            .region(Region.EU_WEST_1) // Specify your region
-            .build();
-    }
 
     public void publishWithdrawalEvent(BigDecimal amount, Long accountId, String status) {
         WithdrawalEvent event = new WithdrawalEvent(amount, accountId, "SUCCESSFUL");
