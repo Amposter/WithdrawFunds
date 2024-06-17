@@ -1,4 +1,4 @@
-package org.sanlam.events;
+package org.sanlam.helpers.events;
 
 import java.math.BigDecimal;
 

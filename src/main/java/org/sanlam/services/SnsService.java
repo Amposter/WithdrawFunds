@@ -8,7 +8,7 @@ import software.amazon.awssdk.services.sns.model.PublishResponse;
 
 import java.math.BigDecimal;
 
-import org.sanlam.events.WithdrawalEvent;
+import org.sanlam.helpers.events.WithdrawalEvent;
 
 
 public class SnsService {

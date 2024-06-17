@@ -1,6 +1,6 @@
 package org.sanlam.controllers;
 
-import org.sanlam.enums.WithdrawalResult;
+import org.sanlam.helpers.enums.WithdrawalResult;
 import org.sanlam.services.SnsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package org.sanlam.enums;
+package org.sanlam.helpers.enums;
 
 public enum WithdrawalResult {
     NO_BALANCE,
